@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The AIGuy — Free AI Consultation for Your Business</title>
+    <meta name="description" content="Not sure if AI can help your business? Book a free consultation. I'll learn how you operate, identify where AI fits, and give you a full report — you only pay if you want me to build it.">
+
+    <!-- Facebook Pixel (replace with yours) -->
+    <!-- fbq('init', 'YOUR_PIXEL_ID'); fbq('track', 'PageView'); -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #FAFAF8;
+            color: #1a1a1a;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            padding: clamp(3.5rem, 10vh, 6rem) 0 clamp(2.5rem, 5vh, 3.5rem);
+        }
+
+        .brand {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #1a1a1a;
+            margin-bottom: 2.5rem;
+        }
+
+        .brand span {
+            color: #2563EB;
+        }
+
+        .hero h1 {
+            font-family: 'Lora', Georgia, serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 600;
+            color: #1a1a1a;
+            line-height: 1.2;
+            letter-spacing: -0.015em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero .lead {
+            font-size: clamp(1.05rem, 1.6vw, 1.15rem);
+            color: #555;
+            line-height: 1.8;
+            max-width: 560px;
+        }
+
+        /* ── CTA ── */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.9rem 2rem;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #fff;
+            background: #1a1a1a;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            background: #333;
+            transform: translateY(-1px);
+        }
+
+        .btn:active { transform: translateY(0); }
+
+        .btn-outline {
+            background: transparent;
+            color: #1a1a1a;
+            border: 1.5px solid #d0d0d0;
+        }
+
+        .btn-outline:hover {
+            border-color: #999;
+            background: transparent;
+        }
+
+        .cta-row {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .hero .cta-row {
+            margin-top: 2.5rem;
+        }
+
+        .cta-note {
+            font-size: 0.78rem;
+            color: #999;
+            margin-top: 0.75rem;
+        }
+
+        /* ── Separator ── */
+        hr {
+            border: none;
+            height: 1px;
+            background: #e5e5e0;
+            margin: 0;
+        }
+
+        /* ── Sections ── */
+        section {
+            padding: clamp(3rem, 7vh, 4.5rem) 0;
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #2563EB;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-heading {
+            font-family: 'Lora', Georgia, serif;
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
+            font-weight: 600;
+            color: #1a1a1a;
+            line-height: 1.25;
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.75;
+        }
+
+        /* ── What You Get ── */
+        .what-you-get p {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .what-you-get p:last-child {
+            margin-bottom: 0;
+        }
+
+        .callout {
+            margin-top: 2rem;
+            padding: 1.5rem 1.75rem;
+            background: #fff;
+            border-left: 3px solid #2563EB;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+
+        .callout p {
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.75;
+            margin-bottom: 0;
+        }
+
+        .callout strong {
+            color: #1a1a1a;
+        }
+
+        /* ── Examples ── */
+        .examples-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .example-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .example-marker {
+            width: 8px;
+            height: 8px;
+            background: #2563EB;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 8px;
+        }
+
+        .example-text {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .example-text strong {
+            color: #1a1a1a;
+        }
+
+        /* ── Steps ── */
+        .steps-section {
+            background: #fff;
+            border-top: 1px solid #e5e5e0;
+            border-bottom: 1px solid #e5e5e0;
+        }
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+        }
+
+        .step-num {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2563EB;
+            line-height: 1;
+            flex-shrink: 0;
+            width: 28px;
+            padding-top: 2px;
+        }
+
+        .step-content strong {
+            display: block;
+            font-size: 1rem;
+            color: #1a1a1a;
+            margin-bottom: 0.25rem;
+        }
+
+        .step-content span {
+            font-size: 0.9rem;
+            color: #777;
+            line-height: 1.65;
+        }
+
+        .free-tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #16a34a;
+            background: rgba(22, 163, 74, 0.08);
+            border-radius: 3px;
+            padding: 0.15rem 0.45rem;
+            margin-left: 0.4rem;
+            vertical-align: middle;
+        }
+
+        /* ── Promise ── */
+        .promise {
+            text-align: center;
+            padding: clamp(2.5rem, 6vh, 4rem) 0;
+        }
+
+        .promise-box {
+            max-width: 520px;
+            margin: 0 auto;
+            padding: 2rem 2rem;
+            background: #fff;
+            border: 1px solid #e5e5e0;
+            border-radius: 12px;
+        }
+
+        .promise-box h3 {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.75rem;
+        }
+
+        .promise-box p {
+            font-size: 0.93rem;
+            color: #666;
+            line-height: 1.75;
+        }
+
+        .promise-box .green {
+            color: #16a34a;
+            font-weight: 600;
+        }
+
+        /* ── Bottom CTA ── */
+        .bottom-cta {
+            text-align: center;
+            padding: clamp(3rem, 8vh, 5rem) 0 clamp(3.5rem, 10vh, 6rem);
+        }
+
+        .bottom-cta h2 {
+            font-family: 'Lora', Georgia, serif;
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.75rem;
+        }
+
+        .bottom-cta .subtitle {
+            font-size: 1rem;
+            color: #777;
+            margin-bottom: 2rem;
+            max-width: 440px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .bottom-cta .cta-row {
+            justify-content: center;
+        }
+
+        /* ── Phone Reveal ── */
+        .phone-hidden { display: none; }
+        .phone-visible { display: block; animation: fadeIn 0.3s ease forwards; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .phone-number {
+            font-family: 'Lora', Georgia, serif;
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
+            font-weight: 600;
+            margin: 1rem 0 0.25rem;
+        }
+
+        .phone-number a {
+            color: #1a1a1a;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .phone-number a:hover { color: #2563EB; }
+
+        .phone-sub {
+            font-size: 0.78rem;
+            color: #999;
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            border-top: 1px solid #e5e5e0;
+        }
+
+        footer p {
+            font-size: 0.78rem;
+            color: #bbb;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 600px) {
+            .btn { width: 100%; }
+            .cta-row { flex-direction: column; }
+            .bottom-cta .cta-row { align-items: center; }
+            .promise-box { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="brand">The <span>AI</span>Guy</div>
+            <h1>You keep hearing about AI but have no idea where to start.</h1>
+            <p class="lead">That's fine. Most business owners are in the same boat. I'll sit down with you, learn how your business actually runs, and tell you exactly where AI can help — for free. You only pay if you want me to build something.</p>
+            <div class="cta-row">
+                <a href="#contact" class="btn">Book a Free Consultation</a>
+            </div>
+            <p class="cta-note">20 min call · Completely free · No tech knowledge needed</p>
+        </div>
+    </section>
+
+    <hr>
+
+    <!-- What You Get -->
+    <section class="what-you-get">
+        <div class="container">
+            <div class="section-label">The offer</div>
+            <h2 class="section-heading">I'll audit your business for AI opportunities — at no cost to you</h2>
+
+            <p>You tell me how your business works. How you get customers, how you handle inquiries, what takes up most of your day, what's frustrating. I'll ask the right questions — you just talk.</p>
+
+            <p>After the call, I put together a report that shows you every area where AI can make a real difference in your business. Not vague ideas — specific recommendations with realistic estimates of time saved and revenue gained.</p>
+
+            <div class="callout">
+                <p><strong>The report is yours to keep regardless.</strong> If nothing in it makes sense for your business right now, you walk away with free insights and a better understanding of what AI can actually do. No pressure, no follow-up emails, no catch.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <!-- Examples -->
+    <section>
+        <div class="container">
+            <div class="section-label">What I typically find</div>
+            <h2 class="section-heading">The kind of things that show up in most consultations</h2>
+
+            <div class="examples-list">
+                <div class="example-item">
+                    <div class="example-marker"></div>
+                    <div class="example-text"><strong>Missed calls are costing you customers.</strong> You're busy, on a job, or it's after hours — and the caller moves on to your competitor. AI can answer every call instantly, 24/7.</div>
+                </div>
+                <div class="example-item">
+                    <div class="example-marker"></div>
+                    <div class="example-text"><strong>You're spending hours on work that could take minutes.</strong> Scheduling, data entry, sending reminders, following up on invoices — there's a good chance AI can handle most of it automatically.</div>
+                </div>
+                <div class="example-item">
+                    <div class="example-marker"></div>
+                    <div class="example-text"><strong>Leads go cold because follow-up takes too long.</strong> Someone fills out your form or leaves a voicemail and doesn't hear back for hours. AI can respond in seconds.</div>
+                </div>
+                <div class="example-item">
+                    <div class="example-marker"></div>
+                    <div class="example-text"><strong>Your website isn't converting visitors into calls.</strong> People land on your site, browse around, and leave. AI chat can engage them in real time and book them before they disappear.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="steps-section">
+        <div class="container">
+            <div class="section-label">How it works</div>
+            <h2 class="section-heading">Four steps — the first three are free</h2>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <strong>You book a call <span class="free-tag">Free</span></strong>
+                        <span>Pick a time. We talk for 20-30 minutes. You describe your business — I ask the questions that matter.</span>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <strong>I analyze your workflows <span class="free-tag">Free</span></strong>
+                        <span>I go through everything you told me and map out where AI fits. What saves you time, what makes you money, what's not worth doing.</span>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <strong>You get a custom report <span class="free-tag">Free</span></strong>
+                        <span>Plain English. No jargon. A clear list of what AI can do for your business, ranked by impact, with realistic numbers.</span>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div class="step-content">
+                        <strong>You decide</strong>
+                        <span>If something in the report makes sense, I build it for you. If not, you keep the report and we part as friends.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promise -->
+    <section class="promise">
+        <div class="container">
+            <div class="promise-box">
+                <h3>You only pay if you say yes</h3>
+                <p>The call is free. The analysis is free. The report is free. <span class="green">You only pay if I find something valuable and you want me to implement it.</span> If I can't find a single way AI helps your business, you've lost nothing but 20 minutes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="bottom-cta" id="contact">
+        <div class="container">
+            <h2>Let's figure this out together</h2>
+            <p class="subtitle">Worst case, you learn something new. Best case, it changes how you run your business.</p>
+            <div class="cta-row">
+                <button class="btn" onclick="revealPhone()" id="reveal-btn">Call Me to Book</button>
+                <a href="https://wa.me/1XXXXXXXXXX?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20AI%20consultation%20for%20my%20business" class="btn btn-outline">Message on WhatsApp</a>
+            </div>
+            <div id="phone-container" class="phone-hidden">
+                <p class="phone-number"><a href="tel:+1XXXXXXXXXX">+1 (XXX) XXX-XXXX</a></p>
+                <p class="phone-sub">Call or text anytime</p>
+            </div>
+            <p class="cta-note">No cost · No obligation · No tech knowledge needed</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 The AIGuy — Ibrahim Haddad</p>
+    </footer>
+
+    <script>
+        function revealPhone() {
+            document.getElementById('phone-container').classList.remove('phone-hidden');
+            document.getElementById('phone-container').classList.add('phone-visible');
+            document.getElementById('reveal-btn').style.display = 'none';
+            if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+        }
+    </script>
+
+</body>
+</html>
